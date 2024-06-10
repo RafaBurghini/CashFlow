@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %} Incomes {% endblock %}
+
+{% block header %} Add new incomes {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div>
+    <!-- Button that trigger the income modal-->
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#incomeModal">+ Add Income</button>
+    <!-- INCOME Modal -->
+    <div class="modal fade" id="incomeModal" tabindex="-1" aria-labelledby="incomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="incomeModalLabel">Add Income</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <!-- INCOME FORM -->
+            <form id="incomeForm" method="post">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}{{form|crispy}}
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- TRANSACTIONS HISTORY -->
+    <div class="transactions-box-income">
+        <h3>Transactions history</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                    <tr class="transaction-data">
+                        {% if income.date.date == today %}
+                            <td>{{ transaction.date|date:"F j, Y, g:i a" }}</td>
+                        {% else %}
+                            <td>{{ transaction.date|date:"F j, Y" }}</td>
+                        {% endif %}
+                        <td>${{ transaction.amount }}</td>
+                        <td>{{ transaction.category }}
+                        {% if transaction.notes %}
+                            <div class="notes">Notes: {{transaction.notes}}</div>
+                        {% endif %}
+                        </td>
+                        <td class="{{ transaction.transaction_type }}">{{ transaction.transaction_type }}</td>
+                    </tr>
+                            
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>    
+{% endblock %}

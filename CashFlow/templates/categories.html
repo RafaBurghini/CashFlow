@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block title %} Categories {% endblock %}
+
+{% block header %} Create your categories {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div>
+    <!-- Button that trigger the categories modal-->
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#categoryModal">Create a new category</button>
+    <div class="container-categories">
+        <!-- CATEGORY Modal -->
+        <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="categoryModalLabel">Create category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <!-- CATEGORY FORM -->
+                <form id="categoryForm" method="post">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}{{form|crispy}}
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- END OF CATEGORY MODAL -->
+        <!-- List of categories -->
+        <ul>
+            {% for category in categories %}
+                <li class="category-item">
+                    {{ category.name }}
+                    {{ category.icon }}
+                    {{ category.category_type}}
+                    <a href="#" class="btn btn-danger delete-btn"><i class="fa-solid fa-trash"></i></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,257 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    width: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px;
+    font-size: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #ffff; /* gris claro */
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2; /* blanco */
+}
+
+td.INCOME {
+    color: green;
+
+    
+}
+
+td.EXPENSE {
+    color: red;
+
+}
+
+h3, h4 {
+    font-weight: bold;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    height: 1200px;
+    background-color: #91A2c5;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.sidebar-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.sidebar-link:hover {
+    color: #3373f2;
+}
+
+
+/* Dashboard styles */
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-left: -25px;
+}
+.container-home {
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-title {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.container-xl {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.balance-box {
+    padding: 30px 30px 30px 10px;
+    border-radius: 10px;
+    background-color: #e6e4e4;
+    margin-top: 10px;
+}
+
+.balance-amount {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.balance-title {
+    font-size: 20px;
+    color: #0f50f6;
+}
+.top-section {
+    display: flex;
+}
+
+/* Goals styles */
+
+.goals-box {
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+}
+
+
+.goal{
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #a8badc;
+    font-weight: bold;
+}
+
+.goal-editing{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #d8d9d9;
+    font-weight: bold;
+}
+
+.goal-editing-buttons{
+    margin-top: 10px;
+}
+
+/* Chart styles */
+.chart-box {
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Transactions styles */
+
+.transactions-box {
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    font-size: 20px;
+}
+
+
+/* footer styles */
+
+.footer {
+    background-color: #277946;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    bottom: 0;
+    width: 100%;
+
+}
+
+/* buttons styles */
+
+.button-google {
+    background-color: #0f50f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.button-google:hover {
+    background-color: #0f50f6;
+    color: white;
+}
+
+.btn{
+    margin: 5px;
+}
+
+/* Form styles */
+.income-form {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+/* Form styles */
+.expense-form {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+}
+
+.container-categories {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    background-color: #cacaca;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+/* Oculta el botón de borrar por defecto */
+.category-item .delete-btn {
+    display: none;
+    width: auto;
+    padding: 10px;
+    height: auto;
+
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #b9b8b8;
+}
+/* Muestra el botón de borrar cuando se hace hover en el elemento de la lista */
+.category-item:hover .delete-btn {
+    display: inline-block;
+}

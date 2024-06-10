@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block header %} Welcome to CashFlow {% endblock %}
+
+{% block content %}
+    <div class="container-home">
+        <h2 class="my-4">Home page</h2>
+        <p class="lead">Welcome to CashFlow, your one-stop solution for managing your personal finances. With our intuitive and user-friendly interface, managing your money has never been easier.</p>
+        <p>Here at CashFlow, we offer a wide range of features designed to help you gain control over your financial life. You can:</p>
+        <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item"><strong>Track your expenses:</strong> Keep a close eye on your spending habits. Our system allows you to record every penny spent, helping you understand where your money is going.</li>
+            <li class="list-group-item"><strong>Monitor your income:</strong> Keep track of all your income sources. Whether it's your salary, freelance work, or other sources, record it all in one place.</li>
+            <li class="list-group-item"><strong>Set and achieve financial goals:</strong> Want to save for a new car or a dream vacation? Set your financial goals and monitor your progress over time.</li>
+            <li class="list-group-item"><strong>Establish spending limits:</strong> Avoid overspending by setting up spending limits. We'll alert you when you're nearing your limit.</li>
+            <li class="list-group-item"><strong>Chat with our AI:</strong> Have a financial question? Our AI chatbot is here to help. Get instant responses to your queries, any time of the day.</li>
+            <li class="list-group-item"><strong>Visualize your finances:</strong> With our interactive charts and graphs, you can visualize your income, expenses, and savings, making it easier to make informed financial decisions.</li>
+        </ul>
+        <p>Join CashFlow today and take the first step towards a better financial future.</p>
+        <a href="{% url 'sign_up'%}" class="btn btn-primary">Register Now</a>
+    </div>
+{% endblock %}

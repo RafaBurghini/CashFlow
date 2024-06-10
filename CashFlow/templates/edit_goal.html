@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Goals {% endblock %}
+
+{% block header %} Edit your goal{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="goals-box">
+            <h4>{{goal.name}}</h4>
+            <p>{{goal.category}}</p>
+            <p>Target Amount: ${{goal.target_amount}}</p>
+            <p>Deadline: {{goal.desired_date}}</p>
+            <p>Current amount: ${{goal.current_amount}}</p>
+            <p>Progress: {{ goal.progress }}%</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style='width: {{ goal.progress }}%;' aria-valuenow="{{ goal.progress }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="goal-editing-buttons">
+                <!-- Button that trigger the goal add amount modal-->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#goalAddAmountModal">ADD SAVED AMOUNT</button>
+                <a class="btn btn-success" href="{% url 'complete_goal' goal.id %}">MARK AS COMPLETED</a>
+                <a class="btn btn-danger" href="{% url 'delete_goal'%} goal.id">DELETE GOAL</a>
+
+            </div>
+                    <!-- GOAL ADD AMOUNT Modal -->
+            <div class="modal fade" id="goalAddAmountModal" tabindex="-1" aria-labelledby="goalAddAmountModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="goalAddAmountModalLabel">Add saved amount</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <!-- GOAL ADD AMOUNT FORM -->
+                            <form id="GoalAddAmountForm" method="post">
+                                {% load crispy_forms_tags %}
+                                {% csrf_token %}{{form|crispy}}
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
